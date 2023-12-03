@@ -15,19 +15,15 @@ import java.util.List;
 @Builder
 public class Subpost {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @NotBlank(message = "Community name is required!")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    @NotBlank(message = "Community name is required")
     private String name;
-
-    @NotBlank(message = "Description is required!")
+    @NotBlank(message = "Description is required")
     private String description;
-
     @OneToMany(fetch = FetchType.LAZY)
     private List<Post> posts;
     private Instant createdDate;
-
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 }
