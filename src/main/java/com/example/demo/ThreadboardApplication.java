@@ -13,8 +13,5 @@ public class ThreadboardApplication {
 		SpringApplication.run(ThreadboardApplication.class, args);
 	}
 
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+
 }
