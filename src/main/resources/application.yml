@@ -1,5 +1,6 @@
-#Database properties!
+
 spring:
+  #Database properties!
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/main_db
@@ -12,4 +13,10 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-#Email
+  #Email properties
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 25
+    username: f45b9ad5a0312f
+    password: 05299375945167
+    protocol: smtp
