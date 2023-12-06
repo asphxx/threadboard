@@ -1,12 +1,17 @@
 package com.example.demo.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.Instant;
 import java.util.List;
 
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
 @AllArgsConstructor
@@ -15,15 +20,15 @@ import java.util.List;
 @Builder
 public class Subpost {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = SEQUENCE)
     private Long id;
     @NotBlank(message = "Community name is required")
     private String name;
     @NotBlank(message = "Description is required")
     private String description;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = LAZY)
     private List<Post> posts;
     private Instant createdDate;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = LAZY)
     private User user;
 }
